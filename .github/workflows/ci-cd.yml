@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,3 +26,10 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Deploy to Netlify
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.secret_key }}
+        run: |
+          npm install -g netlify-cli
+          netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN
