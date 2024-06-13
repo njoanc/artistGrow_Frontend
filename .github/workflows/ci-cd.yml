@@ -29,4 +29,4 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: |
           npm install -g netlify-cli
-          netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --timeout 600
+          netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN
