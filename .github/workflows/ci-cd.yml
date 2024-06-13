@@ -1,10 +1,7 @@
-name: CI/CD for React App
+name: Deploy to Netlify
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
@@ -24,9 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Build
+        run: npm run build
+
       - name: Deploy to Netlify
         env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.secret_token}}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         run: |
           npm install -g netlify-cli
-          netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN
+          netlify deploy --prod --dir=build --auth=$NETLIFY_AUTH_TOKEN --timeout 600
