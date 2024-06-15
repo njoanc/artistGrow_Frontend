@@ -1,12 +1,11 @@
-import SocialAuth from "./socialSignup/SocialAuth";
-import SignupForm from "./SignupForm";
 import SharedButton from "../shared/SharedButton";
 import SharedParagraph from "../shared/SharedParagraph";
-
+import LoginForm from "./LoginForm";
+import SocialAuth from "./socialSignup/SocialAuth";
 const backgroundColor =
   "linear-gradient(to right, #1DB954, #191414F2 25%, #1DB954 50%, #191414F2 75%, #191414F2)";
 
-const Home = () => {
+const Login = () => {
   return (
     <div className="flex flex-row h-screen">
       <div className="w-1/2 flex justify-center items-center h-screen">
@@ -35,31 +34,31 @@ const Home = () => {
             backgroundColor={backgroundColor}
             alt="google icon"
             icon="/assets/shared/googleIcon.svg"
-            text="Signup with Google"
+            text="Sign in with Google"
           />
           <SocialAuth
             backgroundColor={backgroundColor}
             alt="spotify icon"
             icon="/assets/shared/spotifyIcon.svg"
-            text="Signup with Spotify"
+            text="Sign in with Spotify"
           />
           <SocialAuth
             backgroundColor={backgroundColor}
             alt="facebook icon"
             icon="/assets/shared/facebookIcon.svg"
-            text="Signup with Facebook"
+            text="Sign in with Facebook"
           />
         </div>
-        <SignupForm />
+        <LoginForm />
         <div className=" flex justify-center items-center uppercase  pt-5">
-          <SharedButton buttonText="Signup" />
+          <SharedButton buttonText="Sign in" />
         </div>
         <div className="text-xs flex justify-center items-center pt-[2rem]">
-          <SharedParagraph link="/login" p="Existing user?" navigate="Login" />
+          <SharedParagraph link="/" p="New user?" navigate="Signup" />
         </div>
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Login;
